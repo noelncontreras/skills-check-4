@@ -22,7 +22,8 @@ module.exports = {
 
             req.session.user = {
                 user_id: newUser[0].user_id,
-                username: newUser[0].username
+                username: newUser[0].username,
+                profile_pic: newUser[0].profile_pic
             };
 
             res.status(200).json(req.session.user);
@@ -44,8 +45,10 @@ module.exports = {
             } else {
                 req.session.user = {
                     user_id: foundUser[0].user_id,
-                    username: foundUser[0].username
+                    username: foundUser[0].username,
+                    profile_pic: foundUser[0].profile_pic
                 };
+                
                 res.status(200).json(req.session.user);
             };
         };

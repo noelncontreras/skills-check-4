@@ -1,21 +1,38 @@
-import React from 'react';
-import Auth from "./Components/Auth/Auth"
-import Dashboard from './Components/Dashboard/Dashboard';
-import Form from './Components/Form/Form';
+import React, { Component } from 'react';
 import Nav from './Components/Nav/Nav';
-import Post from './Components/Post/Post';
+import Auth from "./Components/Auth/Auth";
+import routes from './routes';
+import { connect } from "react-redux";
+import { getSession } from "./Redux/reducers/userReducer";
 
-import './App.css';
+import './App.scss';
 
 
-export default function App() {
-  return (
-    <div>
-      <Nav />
-      <Auth />
-      <Dashboard />
-      <Form />
-      <Post />
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.getSession();
+  }
+
+  render() {
+    return (
+      <div>
+        {!this.props.user_id ?
+          <Auth />
+          :
+          <div className="nav-container">
+            <Nav />
+            {routes}
+          </div>
+        }
+      </div>
+    );
+  }
 }
+
+const mapStateToProps = reduxState => {
+  return {
+    user_id: reduxState.userReducer.user_id
+  }
+}
+
+export default connect(mapStateToProps, { getSession })(App);

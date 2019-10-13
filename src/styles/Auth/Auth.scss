@@ -1,0 +1,28 @@
+@import "../Utilities/Utilities.scss";
+
+.auth-page {
+    width: 100vw;
+    height: 100vh;
+    @include login-input;
+    background: $auth-background;
+    text-align: center;
+}
+
+.login-box {
+    width: 30vw;
+    height: 50vh;
+    @include login-input;
+    box-shadow: 0px 0px 20px $black;
+    background: $auth-background;
+}
+
+.logo-helo {
+    font-size: 5rem;
+    color: $white;
+    font-family: $web-font;
+}
+
+.input-fields {
+    @include login-input;
+    text-align: center;
+}

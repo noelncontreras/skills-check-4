@@ -1,0 +1,12 @@
+@mixin login-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+$auth-background: linear-gradient(90deg, rgba(255,112,134,1) 0%, rgba(255,151,112,1) 50%, rgba(233,255,112,1) 100%);;
+$nav-background: linear-gradient(90deg, rgba(255,112,134,1) 0%, rgba(255,151,112,1) 100%, rgba(233,255,112,1) 100%);
+$web-font: 'Open Sans', sans-serif;
+$black: black;
+$white: white;
