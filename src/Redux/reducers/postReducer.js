@@ -2,7 +2,10 @@ import axios from "axios";
 
 //initialState
 const initialState = {
-    posts: []
+    posts: [],
+    title: "",
+    img: "",
+    content: ""
 };
 
 //constants
@@ -35,7 +38,6 @@ export function addPost(newPost) {
 //reducer
 export default function reducer(state = initialState, action) {
     const { type, payload } = action;
-    console.log(payload)
     switch (type) {
         case `${GET_ALL_POSTS}_FULFILLED`:
             return {

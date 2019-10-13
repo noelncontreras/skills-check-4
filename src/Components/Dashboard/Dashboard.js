@@ -23,7 +23,6 @@ class Dashboard extends Component {
 
     handleSearch = () => {
         const {searchBox} = this.state;
-        // const searchedUsername = {searchBox};
 
         this.props.getPostByUsername(searchBox);
     }
@@ -39,7 +38,7 @@ class Dashboard extends Component {
     render() {
         const postMapped = this.props.posts.map((post, i) => {
             return (
-                <div className="post-background">
+                <div className="post-background" key={i}>
                     <Link to={`/post/${post.post_id}`} style={{textDecoration: "none"}}>
                         <div key={i} className="post-info" onClick={this.seePost}>
                             <div className="dashboard-post-title">

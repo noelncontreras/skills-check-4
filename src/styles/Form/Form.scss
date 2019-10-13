@@ -1,0 +1,81 @@
+@import "../Utilities/Utilities.scss";
+
+.Form-form-container {
+    // width: 80vw;
+}
+
+.Form-form-box {
+    width: 100vw;
+    height: 100vh;
+    margin-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Form-input-box {
+    width: 75vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: $web-font;
+    background: $white;
+    box-shadow: 0px 0px 5px $black;
+}
+
+.Form-new-post {
+    width: 90%;
+    font-size: 3rem;
+    font-weight: 900;
+    color: $orange;
+}
+
+.Form-title-input {
+    width: 82%;
+    height: 5vh;
+    display: flex;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    input {
+        width: 97%;
+        margin-top: 10px;
+    }
+}
+
+.Form-img-input {
+    @extend .Form-title-input;
+
+}
+
+.Form-img-box {
+    @extend .Form-title-input;
+    width: 40%;
+    height: 30vh;
+    align-items: center;
+    box-shadow: 0px 0px 3px $black;
+}
+
+.Form-content-input {
+    @extend .Form-title-input;
+    height: 20vh;
+    textarea {
+        margin-top: 10px;
+    }
+}
+
+.Form-form-button {
+    justify-content: space-between;
+    button {
+        width: 5vw;
+        height: 25px;
+        border-radius: 15%;
+        cursor: pointer;
+        outline: none;
+    }
+}
