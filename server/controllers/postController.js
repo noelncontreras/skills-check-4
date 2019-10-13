@@ -17,9 +17,10 @@ module.exports = {
     },
     getPostByUsername: async (req, res) => {
         const { username } = req.query;
+        console.log(username)
         const db = req.app.get("db");
 
-        const getSearched = await db.post.getPostByUsername(username);
+        const getSearched = await db.post.getPostByUsername(`${username}%`);
 
         res.status(200).json(getSearched);
     },

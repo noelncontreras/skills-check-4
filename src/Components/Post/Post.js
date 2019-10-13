@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "../../styles/Post/Post.scss";
 
 
 export default class Post extends Component {
@@ -9,10 +10,10 @@ export default class Post extends Component {
         }
     }
     
-    render() { 
+    render() {
         return (
-            <div>
-                <h1>Post</h1>
+            <div className="match-params">
+                <h1>{this.props.match.params.post_id}</h1>
             </div>
         );
     }

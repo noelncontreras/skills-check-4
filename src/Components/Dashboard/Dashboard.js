@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllPosts } from "../../Redux/reducers/postReducer";
+import { Link } from "react-router-dom";
+import { getAllPosts, getPostByUsername } from "../../Redux/reducers/postReducer";
 import "../../styles/Dashboard/Dashboard.scss";
 
 
@@ -21,24 +22,35 @@ class Dashboard extends Component {
     }
 
     handleSearch = () => {
+        const {searchBox} = this.state;
+        // const searchedUsername = {searchBox};
 
+        this.props.getPostByUsername(searchBox);
+    }
+
+    clearSearchInput = () => {
+        this.setState({searchBox: ""})
     }
 
     seePost = () => {
-        
+
     }
 
     render() {
         const postMapped = this.props.posts.map((post, i) => {
             return (
-                <div key={i} className="post-info" onClick={this.seePost}>
-                    <div className="dashboard-post-title">
-                        <h1>{post.title}</h1>
-                    </div>
-                    <div className="dashboard-user-info">
-                        <h1>by {post.username}</h1>
-                        <img alt="pic" src={post.profile_pic} />
-                    </div>
+                <div className="post-background">
+                    <Link to={`/post/${post.post_id}`} style={{textDecoration: "none"}}>
+                        <div key={i} className="post-info" onClick={this.seePost}>
+                            <div className="dashboard-post-title">
+                                <h1>{post.title}</h1>
+                            </div>
+                            <div className="dashboard-user-info">
+                                <h1>by {post.username}</h1>
+                                <img alt="pic" src={post.profile_pic} />
+                            </div>
+                        </div>
+                    </Link>
                 </div>
             )
         })
@@ -49,8 +61,11 @@ class Dashboard extends Component {
                     <input
                         type="text"
                         name="searchBox"
+                        value={this.state.searchBox}
                         onChange={this.handleInputChange} />
                     <button onClick={this.handleSearch}>Search</button>
+                    <button onClick={this.clearSearchInput}>Clear</button>
+                    <button onClick={() => this.props.getAllPosts()}>Get All Posts</button>
                 </div>
                 <br />
                 {postMapped}
@@ -66,4 +81,4 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps, { getAllPosts })(Dashboard);
+export default connect(mapStateToProps, { getAllPosts, getPostByUsername })(Dashboard);

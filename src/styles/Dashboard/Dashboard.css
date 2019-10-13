@@ -1,5 +1,9 @@
+.post-background {
+  background: white;
+}
+
 .post-info {
-  width: 80%;
+  width: 95%;
   height: 15vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,7 +18,7 @@
   background: white;
   -webkit-box-shadow: 0px 0px 3px black;
           box-shadow: 0px 0px 3px black;
-  margin: 5px;
+  margin: 10px;
 }
 
 .post-info .dashboard-user-info img {
@@ -24,11 +28,12 @@
 }
 
 .dashboard-post-title {
+  width: 20vw;
   margin-left: 10px;
 }
 
 .dashboard-user-info {
-  width: 25vw;
+  width: 50vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,12 +70,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: white;
 }
 
 .search-box button {
