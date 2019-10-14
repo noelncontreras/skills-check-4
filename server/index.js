@@ -43,6 +43,8 @@ app.get("/api/posts", PC.getAllPosts);
 app.get("/api/posts/username", PC.getPostByUsername);
 //add post by user on session
 app.post("/api/post", PC.addPost);
+//delete post by post_id
+app.delete("/api/post/:post_id", PC.deletePost);
 
 
 app.listen(SERVER_PORT, () => console.log(`Server listening on Port ${SERVER_PORT}`));

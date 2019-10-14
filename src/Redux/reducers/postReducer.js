@@ -12,6 +12,7 @@ const initialState = {
 const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_POST_BY_USERNAME = "GET_POST_BY_USERNAME";
 const ADD_POST = "ADD_POST";
+const DELETE_POST = "DELETE_POST";
 
 //action creators
 export function getAllPosts() {
@@ -34,6 +35,13 @@ export function addPost(newPost) {
         payload: axios.post("/api/post", newPost)
     };
 };
+
+export function deletePost(post_id){
+    return {
+        type: DELETE_POST,
+        payload: axios.delete(`/api/post/${post_id}`)
+    }
+}
 
 //reducer
 export default function reducer(state = initialState, action) {

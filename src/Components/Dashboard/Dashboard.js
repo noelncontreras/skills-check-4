@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllPosts, getPostByUsername } from "../../Redux/reducers/postReducer";
+import { getAllPosts, getPostByUsername, deletePost } from "../../Redux/reducers/postReducer";
 import "../../styles/Dashboard/Dashboard.scss";
 
 
@@ -15,6 +15,12 @@ class Dashboard extends Component {
 
     componentDidMount() {
         this.props.getAllPosts();
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.posts !== this.props.posts) {
+            this.props.getAllPosts();
+        }
     }
 
     handleInputChange = e => {
@@ -31,8 +37,8 @@ class Dashboard extends Component {
         this.setState({searchBox: ""})
     }
 
-    seePost = () => {
-
+    deletePost = (post_id) => {
+        this.props.deletePost(post_id);
     }
 
     render() {
@@ -80,4 +86,4 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps, { getAllPosts, getPostByUsername })(Dashboard);
+export default connect(mapStateToProps, { getAllPosts, getPostByUsername, deletePost })(Dashboard);
