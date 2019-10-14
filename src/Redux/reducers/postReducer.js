@@ -36,7 +36,7 @@ export function addPost(newPost) {
     };
 };
 
-export function deletePost(post_id){
+export function deletePost(post_id) {
     return {
         type: DELETE_POST,
         payload: axios.delete(`/api/post/${post_id}`)

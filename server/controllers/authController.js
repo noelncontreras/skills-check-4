@@ -48,7 +48,7 @@ module.exports = {
                     username: foundUser[0].username,
                     profile_pic: foundUser[0].profile_pic
                 };
-                
+
                 res.status(200).json(req.session.user);
             };
         };

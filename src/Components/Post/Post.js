@@ -18,7 +18,7 @@ class Post extends Component {
             <div className="match-params">
                 <h1>{this.props.match.params.post_id}</h1>
                 <button onClick={() => this.props.deletePost(this.props.match.params.post_id)}>
-                    <Link to="/dashboard" style={{textDecoration: "none"}}>
+                    <Link to="/dashboard" style={{ textDecoration: "none" }}>
                         <span>&#128465;</span>
                     </Link>
                 </button>

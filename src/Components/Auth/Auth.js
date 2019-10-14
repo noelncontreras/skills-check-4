@@ -38,7 +38,7 @@ class Auth extends Component {
 
 
     render() {
-        const {username, password} = this.state;
+        const { username, password } = this.state;
         if (this.props.user_id) {
             return <Redirect to="/dashboard" />
         }
@@ -55,7 +55,7 @@ class Auth extends Component {
                             <label>Username:</label>
                             <input
                                 type="text"
-                                name="username" 
+                                name="username"
                                 onChange={this.handleChange}
                                 required />
                             <label>Password:</label>

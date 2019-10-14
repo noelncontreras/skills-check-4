@@ -18,7 +18,9 @@ class Dashboard extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.posts !== this.props.posts) {
+        if (prevProps === this.props.posts.username || this.state.searchBox !== "") {
+            return null
+        } else {
             this.props.getAllPosts();
         }
     }
@@ -28,24 +30,25 @@ class Dashboard extends Component {
     }
 
     handleSearch = () => {
-        const {searchBox} = this.state;
+        const { searchBox } = this.state;
 
         this.props.getPostByUsername(searchBox);
     }
 
     clearSearchInput = () => {
-        this.setState({searchBox: ""})
+        this.setState({ searchBox: "" })
     }
 
     deletePost = (post_id) => {
         this.props.deletePost(post_id);
+        this.props.getAllPosts();
     }
 
     render() {
         const postMapped = this.props.posts.map((post, i) => {
             return (
                 <div className="post-background" key={i}>
-                    <Link to={`/post/${post.post_id}`} style={{textDecoration: "none"}}>
+                    <Link to={`/post/${post.post_id}`} style={{ textDecoration: "none" }}>
                         <div key={i} className="post-info" onClick={this.seePost}>
                             <div className="dashboard-post-title">
                                 <h1>{post.title}</h1>
@@ -82,6 +85,7 @@ class Dashboard extends Component {
 const mapStateToProps = reduxState => {
     return {
         user_id: reduxState.userReducer.user_id,
+        username: reduxState.userReducer.username,
         posts: reduxState.postReducer.posts
     }
 }

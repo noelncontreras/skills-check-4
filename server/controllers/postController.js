@@ -33,7 +33,7 @@ module.exports = {
         res.status(200).json(newPost);
     },
     deletePost: async (req, res) => {
-        const {post_id} = req.params;
+        const { post_id } = req.params;
         const db = req.app.get("db");
 
         const posts = await db.post.deletePost(post_id);
